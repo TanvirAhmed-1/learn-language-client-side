@@ -54,3 +54,13 @@ body {
   max-width: 400px;
   line-height: 1.3;
 }
+
+
+/* tostify */
+
+.Toastify__toast {
+  font-family: "Atlas Grotesk Web", Arial, Helvetica, sans-serif !important;
+  color: hashtag#2b8dee !important;
+  font-size: 1.2rem !important;
+  padding: 8px !important;
+ }

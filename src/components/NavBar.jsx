@@ -22,11 +22,20 @@ const handleSignOut=()=>{
         <NavLink to={"/"}>Home</NavLink>
       </li>
       <li>
-        <NavLink to={"/"}>Add Jobs</NavLink>
+        <NavLink to={"/"}>Find tutors</NavLink>
       </li>
 
       <li>
-        <NavLink to={"/"}>My Apply</NavLink>
+        <NavLink to={"/"}>Add Tutorials</NavLink>
+      </li>
+      <li>
+        <NavLink to={"/myTutorial"}>My Tutorials</NavLink>
+      </li>
+      <li>
+        <NavLink to={"/"}>My booked tutors</NavLink>
+      </li>
+      <li>
+        <NavLink to={"/addTutorial"}>Add Tutorials</NavLink>
       </li>
     </>
   );
