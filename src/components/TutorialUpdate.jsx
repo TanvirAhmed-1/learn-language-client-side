@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 
 const TutorialUpdate = () => {
   const userData = useLoaderData();
-  console.log(userData); 
+//   console.log(userData); 
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -12,8 +12,8 @@ const TutorialUpdate = () => {
     const data = Object.fromEntries(formData.entries());
     console.log(data);
 
-    fetch(`http://localhost:5000/Tutorials`, {
-      method: "POST",
+    fetch(`http://localhost:5000/Tutorials/${userData._id}`, {
+      method: "PUT",
       headers: {
         "Content-type": "application/json",
       },
@@ -22,8 +22,8 @@ const TutorialUpdate = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        if (data?.insertedId) {
-          toast.success("Tutorial Successfully Added");
+        if (data?.modifiedCount ===1) {
+          toast.success("Tutorial Successfully Update To Database");
         }
       })
       .catch((err) => {
