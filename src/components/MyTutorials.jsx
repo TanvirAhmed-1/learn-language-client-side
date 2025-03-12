@@ -2,13 +2,13 @@ import React, { useEffect, useState } from "react";
 import { FaPen } from "react-icons/fa";
 import { MdDeleteForever } from "react-icons/md";
 import { Link } from "react-router-dom";
-import Swal from "sweetalert2"; // Use 'Swal' instead of 'SweetAlert2'
+import Swal from "sweetalert2"; 
 
 const MyTutorials = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/tutorial")
+    fetch("http://localhost:5000/tutorials")
       .then((res) => res.json())
       .then((d) => {
         console.log(d);
@@ -30,7 +30,7 @@ const MyTutorials = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/tutorial/${id}`, {
+        fetch(`http://localhost:5000/tutorials/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
@@ -94,7 +94,7 @@ const MyTutorials = () => {
                 <td className="border p-2">{v.language}</td>
                 <td className="border p-2">${v.price}</td>
                 <td className="border p-2">{v.review}</td>
-                <td className="border p-2">{v.description}</td>
+                <td className="border p-2 w-[40%] text-wrap">{v.description}</td>
                 <td className="border p-2">
                   <Link to={`/update/${v._id}`}
                   

@@ -7,13 +7,13 @@ const TeacherCarousal = () => {
         <div className="bg-blue-400">
             <img src="" alt="" srcset="" />
         </div>
-        <div className="bg-white flex flex-col justify-center items-center">
+        {/* <div className="bg-white flex flex-col justify-center items-center">
         <p>tanvirt</p>
         <p>tanvirt</p>
         <p>tanvirt</p>
         <button>By now</button>
 
-        </div>
+        </div> */}
        </div>
 
     </div>

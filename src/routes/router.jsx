@@ -7,6 +7,7 @@ import Register from '../share/Register';
 import AddTutorials from '../components/AddTutorials';
 import MyTutorials from '../components/MyTutorials';
 import TutorialUpdate from '../components/TutorialUpdate';
+import FindTutors from '../components/FindTutors';
 
 const router = createBrowserRouter([
     {
@@ -38,6 +39,11 @@ const router = createBrowserRouter([
                 path:"/update/:id",
                 element:<TutorialUpdate></TutorialUpdate>,
                 loader:({params})=>fetch(`http://localhost:5000/tutorials/${params.id}`)
+            },
+            {
+                path:"/find-tutors/:language",
+                element:<FindTutors></FindTutors>,
+                loader:({params})=>fetch(`http://localhost:5000/tutorials/language/${params.language}`)
             }
         ]
     }

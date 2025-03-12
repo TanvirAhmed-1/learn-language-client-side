@@ -112,12 +112,15 @@ const AddTutorials = () => {
                   name="language"
                   className="w-full px-3 py-3 border bg-white text-black border-gray-300 rounded-md text-sm"
                 >
-                  <option value="" defaultValue="JavaScript">
+                  <option value="" defaultValue="English">
                     Select a language
                   </option>
-                  <option value="javascript">JavaScript</option>
-                  <option value="typescript">TypeScript</option>
-                  <option value="python">Python</option>
+                  <option>English</option>
+                  <option>Spanish</option>
+                  <option>French</option>
+                  <option>italian</option>
+                  <option>Japanese</option>
+                  <option>Bangla</option>
                 </select>
               </div>
 

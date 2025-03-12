@@ -22,7 +22,7 @@ const handleSignOut=()=>{
         <NavLink to={"/"}>Home</NavLink>
       </li>
       <li>
-        <NavLink to={"/"}>Find tutors</NavLink>
+        <NavLink to={"/find-tutors"}>Find tutors</NavLink>
       </li>
 
       <li>

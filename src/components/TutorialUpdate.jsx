@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 
 const TutorialUpdate = () => {
   const userData = useLoaderData();
-//   console.log(userData); 
+  //   console.log(userData);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -22,7 +22,7 @@ const TutorialUpdate = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        if (data?.modifiedCount ===1) {
+        if (data?.modifiedCount === 1) {
           toast.success("Tutorial Successfully Update To Database");
         }
       })
@@ -35,7 +35,9 @@ const TutorialUpdate = () => {
     <div>
       <div className="lg:w-10/12 p-4 mx-auto border rounded-lg shadow-sm bg-white py-20">
         <div className="p-6 border-b pb-10">
-          <h2 className="text-4xl text-center font-semibold">Update Tutorial</h2>
+          <h2 className="text-4xl text-center font-semibold">
+            Update Tutorial
+          </h2>
           <p className="text-lg text-center text-gray-500 mt-1">
             Fill out the form below to update the tutorial details
           </p>
@@ -54,7 +56,7 @@ const TutorialUpdate = () => {
                   type="text"
                   placeholder="Enter Tutorial Name"
                   className="w-full px-3 py-3 border bg-white text-black border-gray-300 rounded-md text-sm"
-                  defaultValue={userData?.name} 
+                  defaultValue={userData?.name}
                 />
               </div>
 
@@ -68,8 +70,8 @@ const TutorialUpdate = () => {
                   type="email"
                   placeholder="Enter Your Email"
                   className="w-full px-3 py-3 bg-white text-black border border-gray-300 rounded-md text-sm"
-                  defaultValue={userData?.email} 
-                  readOnly 
+                  defaultValue={userData?.email}
+                  readOnly
                 />
               </div>
             </div>
@@ -87,6 +89,7 @@ const TutorialUpdate = () => {
                       placeholder="Enter Your Photo URL"
                       type="text"
                       className="flex-1 px-3 py-3 bg-white text-black border border-gray-300 rounded-md text-sm"
+                      defaultValue={userData?.image || ""}
                     />
                   </div>
                 </div>
@@ -102,8 +105,8 @@ const TutorialUpdate = () => {
                     type="text"
                     placeholder="Review"
                     className="w-full px-3 py-3 border bg-white text-black border-gray-300 rounded-md text-sm"
-                    defaultValue={userData?.review} 
-                    readOnly 
+                    defaultValue={userData?.review}
+                    readOnly
                   />
                 </div>
               </div>
@@ -118,11 +121,14 @@ const TutorialUpdate = () => {
                 <select
                   name="language"
                   className="w-full px-3 py-3 border bg-white text-black border-gray-300 rounded-md text-sm"
-                  defaultValue={userData?.language || "javascript"} 
+                  defaultValue={userData?.language || ""}
                 >
-                  <option value="javascript">JavaScript</option>
-                  <option value="typescript">TypeScript</option>
-                  <option value="python">Python</option>
+                  <option>English</option>
+                  <option>Spanish</option>
+                  <option>French</option>
+                  <option>italian</option>
+                  <option>Japanese</option>
+                  <option>Bangla</option>
                 </select>
               </div>
 
