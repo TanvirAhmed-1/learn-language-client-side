@@ -23,6 +23,7 @@ const Home = () => {
             <section>
                 <Category></Category>
             </section>
+            <TeacherCarousal></TeacherCarousal>
         </div>
     );
 };
