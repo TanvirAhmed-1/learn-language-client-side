@@ -44,7 +44,8 @@ const router = createBrowserRouter([
                 path:"/find-tutors/:language",
                 element:<FindTutors></FindTutors>,
                 loader:({params})=>fetch(`http://localhost:5000/tutorials/language/${params.language}`)
-            }
+            },
+
         ]
     }
 ]);
