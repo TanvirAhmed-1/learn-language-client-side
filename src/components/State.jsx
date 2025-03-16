@@ -1,114 +1,79 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { FaLanguage, FaRegUser } from "react-icons/fa";
 
 const State = () => {
+  const [tutors, setTutors] = useState([]);
+  const [review, setReview] = useState([]);
+  const [languages, setLanguages] = useState([]);
+  const [usersCount, setUserCount] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/tutorials/categories")
+      .then((res) => res.json())
+      .then((data) => setLanguages(data));
+
+    fetch("http://localhost:5000/tutorials/tutors")
+      .then((res) => res.json())
+      .then((data) => setTutors(data));
+
+    fetch("http://localhost:5000/users")
+      .then((res) => res.json())
+      .then((data) => {
+        setUserCount(data);
+        setReview(data);
+      });
+  }, []);
+
   return (
-    <div className="w-10/12 mx-auto bg-slate-400">
-      <div className="stats shadow  gap-x-4 flex flex-row-reverse">
-        <div className="stat">
-          <div className="stat-figure text-secondary">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              className="inline-block h-8 w-8 stroke-current"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-              ></path>
-            </svg>
+    <div className="bg-white w-full mx-auto py-10">
+      <div className="w-11/12 mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          {/* Total Languages */}
+          <div className="stat bg-gray-100 p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300">
+            <div className="stat-figure text-blue-500 text-4xl flex justify-center">
+              <FaLanguage />
+            </div>
+            <div className="stat-value text-center">{languages.length}</div>
+            <div className="stat-title text-lg font-semibold text-gray-700 text-center">
+              Total Languages
+            </div>
           </div>
-          <div className="stat-title">Downloads</div>
-          <div className="stat-value">31K</div>
-          <div className="stat-desc">Jan 1st - Feb 1st</div>
-        </div>
 
-        {/* //state 2 */}
-        <div className="stat">
-          <div className="stat-figure text-secondary">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              className="inline-block h-8 w-8 stroke-current"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-              ></path>
-            </svg>
+          {/* Total Tutors */}
+          <div className="stat bg-gray-100 p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300">
+            <div className="stat-figure text-green-500 text-4xl flex justify-center">
+              <FaRegUser />
+            </div>
+            <div className="stat-value text-center">{tutors.length}</div>
+            <div className="stat-title text-lg font-semibold text-gray-700 text-center">
+              Total Tutors
+            </div>
           </div>
-          <div className="stat-title">Downloads</div>
-          <div className="stat-value">31K</div>
-          <div className="stat-desc">Jan 1st - Feb 1st</div>
-        </div>
 
-        {/* //state-3 */}
-        <div className="stat">
-          <div className="stat-figure text-secondary">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              className="inline-block h-8 w-8 stroke-current"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-              ></path>
-            </svg>
+          {/* Total Users */}
+          <div className="stat bg-gray-100 p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300">
+            <div className="stat-figure text-purple-500 text-4xl flex justify-center">
+              <FaRegUser />
+            </div>
+            <div className="stat-value text-center">{usersCount.length}</div>
+            <div className="stat-title text-lg font-semibold text-gray-700 text-center">
+              Total Users
+            </div>
           </div>
-          <div className="stat-title">Downloads</div>
-          <div className="stat-value">31K</div>
-          <div className="stat-desc">Jan 1st - Feb 1st</div>
-        </div>
 
-        <div className="stat">
-          <div className="stat-figure text-secondary">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              className="inline-block h-8 w-8 stroke-current"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"
-              ></path>
-            </svg>
+          {/* New Registers */}
+          <div className="stat bg-gray-100 p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300">
+            <div className="stat-figure text-red-500 text-4xl flex justify-center">
+              <FaRegUser />
+            </div>
+            <div className="stat-value text-center">1,200</div>
+            <div className="stat-title text-lg font-semibold text-gray-700 text-center">
+              New Registers
+            </div>
+            <div className="stat-desc text-center text-sm text-gray-500">
+              ↘︎ 90 (14%)
+            </div>
           </div>
-          <div className="stat-title">New Users</div>
-          <div className="stat-value">4,200</div>
-          <div className="stat-desc">↗︎ 400 (22%)</div>
-        </div>
-
-        <div className="stat">
-          <div className="stat-figure text-secondary">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              className="inline-block h-8 w-8 stroke-current"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"
-              ></path>
-            </svg>
-          </div>
-          <div className="stat-title">New Registers</div>
-          <div className="stat-value">1,200</div>
-          <div className="stat-desc">↘︎ 90 (14%)</div>
         </div>
       </div>
     </div>

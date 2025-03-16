@@ -1,8 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import Lottie from "lottie-react";
 import registerAnimation from "../assets/Signin.json";
+import { AuthContext } from './../authorization/Authorization';
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import { stringify } from "postcss";
 
 const Register = () => {
+
+  const {setUser,registerUser,updateUserProfile}=useContext(AuthContext)
+  const navigate=useNavigate()
+
   const handleForm = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -10,7 +18,30 @@ const Register = () => {
     const email = form.email.value;
     const photo = form.photo.value;
     const password = form.password.value;
-    console.log({ name, email, photo, password });
+    // console.log({ name, email, photo, password });
+    registerUser(email,password)
+    .then(data=>{
+      console.log(data.user)
+      updateUserProfile({ displayName: name, photoURL: photo })
+      fetch("http://localhost:5000/users", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          name:name,
+          email:email,
+          creationTime:data.user.metadata.creationTime,
+        })
+      })
+      .then(res => res.json())
+      .then(data => console.log("Success:", data))
+      .catch(error => console.error("Error:", error));
+      navigate("/")
+      toast.success("user Register Successful")
+    })
+    .then(err=>{
+  })
   };
 
   return (
