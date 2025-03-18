@@ -1,8 +1,5 @@
 import React, { useEffect, useState } from "react";
 import Card from "./Card";
-import { Link } from "react-router-dom";
-import { LiaFlagUsaSolid } from "react-icons/lia";
-import { GoChevronRight } from "react-icons/go";
 
 const Category = () => {
   const [data, setData] = useState([]);

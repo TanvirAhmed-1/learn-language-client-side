@@ -1,53 +1,71 @@
-import { createBrowserRouter } from 'react-router-dom';
-import Root from '../pages/Root';
-import ErrorPage from '../pages/ErrorPage';
-import Home from '../pages/home/Home';
-import Login from '../share/Login';
-import Register from '../share/Register';
-import AddTutorials from '../components/AddTutorials';
-import MyTutorials from '../components/MyTutorials';
-import TutorialUpdate from '../components/TutorialUpdate';
-import FindTutors from '../components/FindTutors';
+import { createBrowserRouter } from "react-router-dom";
+import Root from "../pages/Root";
+import ErrorPage from "../pages/ErrorPage";
+import Home from "../pages/home/Home";
+import Login from "../share/Login";
+import Register from "../share/Register";
+import AddTutorials from "../components/AddTutorials";
+import MyTutorials from "../components/MyTutorials";
+import TutorialUpdate from "../components/TutorialUpdate";
+import FindTutors from "../components/FindTutors";
+import { Navigate } from "react-router-dom";
+import AllTutors from "../components/AllTutors";
+import TutorsDetails from "../components/TutorsDetails";
+import BookedTutors from "../components/BookedTutors";
 
 const router = createBrowserRouter([
-    {
+  {
+    path: "/",
+    element: <Root></Root>,
+    errorElement: <ErrorPage></ErrorPage>,
+    children: [
+      {
         path: "/",
-        element:<Root></Root>,
-        errorElement:<ErrorPage></ErrorPage>,
-        children:[
-            {
-                path:"/",
-                element:<Home></Home>,
-            },
-            {
-                path:"login",
-                element:<Login></Login>
-            },
-            {
-                path:"register",
-                element:<Register></Register>
-            },
-            {
-                path:"addTutorial",
-                element:<AddTutorials></AddTutorials>
-            },
-            {
-                path:"myTutorial",
-                element:<MyTutorials></MyTutorials>
-            },
-            {
-                path:"/update/:id",
-                element:<TutorialUpdate></TutorialUpdate>,
-                loader:({params})=>fetch(`http://localhost:5000/tutorials/${params.id}`)
-            },
-            {
-                path:"/find-tutors/:language",
-                element:<FindTutors></FindTutors>,
-                loader:({params})=>fetch(`http://localhost:5000/tutorials/language/${params.language}`)
-            },
-
-        ]
-    }
+        element: <Home></Home>,
+      },
+      {
+        path: "login",
+        element: <Login></Login>,
+      },
+      {
+        path: "register",
+        element: <Register></Register>,
+      },
+      {
+        path: "addTutorial",
+        element: <AddTutorials></AddTutorials>,
+      },
+      {
+        path: "myTutorial",
+        element: <MyTutorials></MyTutorials>,
+      },
+      {
+        path: "/update/:id",
+        element: <TutorialUpdate></TutorialUpdate>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/tutorials/${params.id}`),
+      },
+      {
+        path: "/find-tutors",
+        element: <AllTutors></AllTutors>,
+      },
+      {
+        path: "/find-tutors/:category",
+        element: <FindTutors></FindTutors>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/tutorials/language/${params.category}`),
+      },
+      {
+        path:"/tutors/:details",
+        element:<TutorsDetails></TutorsDetails>,
+        loader:({params})=>fetch(`http://localhost:5000/tutorials/${params.details}`)
+      },
+      {
+        path:"/my-tutorials",
+        element:<BookedTutors></BookedTutors>
+      }
+    ],
+  },
 ]);
 
 export default router;

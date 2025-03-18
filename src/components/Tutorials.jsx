@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Tutorials = ({ tutorials }) => {
   console.log(tutorials);
 
-  const { _id, name, image, description, language, email, price } = tutorials;
+  const { name, image, description, language,} = tutorials;
   return (
     <div className="">
       <div className="card card-side bg-white shadow-sm flex justify-center items-center gap-6 p-4">

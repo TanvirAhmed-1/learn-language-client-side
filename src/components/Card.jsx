@@ -69,9 +69,9 @@ const Card = ({ tutorials }) => {
           to={`/jobDetails/${_id}`}
           className="card-actions justify-end pt-2"
         >
-          <button className="btn bg-gray-300 text-black border-none group-hover:bg-white group-hover:text-green-600">
+          <Link to={`/tutors/${_id}`} className="btn bg-gray-300 text-black border-none group-hover:bg-white group-hover:text-green-600">
             View Details
-          </button>
+          </Link>
         </Link>
       </div>
     </div>
