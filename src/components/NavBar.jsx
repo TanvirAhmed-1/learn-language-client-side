@@ -83,14 +83,23 @@ const NavBar = () => {
         </ul>
       </div>
       <div className="navbar-end gap-3">
-        <div>
+        <div className="dropdown">
           {user && user.email ? (
-            <div onClick={handleSignOut} className="cursor-pointer">
+            <div tabIndex={0} role="button" className="cursor-pointer  m-1 ">
               <img
                 className="rounded-full h-12 w-12 object-cover"
-                src={user.photoURL} // ✅ Correct way to access the photoURL
+                src={user.photoURL}
                 alt="User Profile"
               />
+
+              <ul
+                tabIndex={0}
+                className="dropdown-content menu bg-white rounded-box z-1 w-52 p-2 shadow-sm"
+              >
+               
+                <li className="px-4 py-2 text-gray-700 font-medium">{user.displayName}</li>
+               
+              </ul>
             </div>
           ) : (
             <Link to={"/login"}>
@@ -101,9 +110,15 @@ const NavBar = () => {
           )}
         </div>
         <Link to={"/register"}>
-          <p className="btn text-green-500 bg-white border-green-500 hover:border-none hover:text-white hover:bg-green-500 md:text-xl font-semibold">
-            Register
-          </p>
+          {user && user.email ? (
+            <button onClick={handleSignOut} className="btn text-green-500 bg-white border-green-500 hover:border-none hover:text-white hover:bg-green-500 md:text-xl font-semibold">
+             Sign Out
+            </button>
+          ) : (
+            <button className="btn text-green-500 bg-white border-green-500 hover:border-none hover:text-white hover:bg-green-500 md:text-xl font-semibold">
+              Register
+            </button>
+          )}
         </Link>
       </div>
     </div>
