@@ -72,3 +72,11 @@ body {
   color: #ffffff;
  
  }
+ .slick-prev:before{
+  color:aqua;
+font-size: 25px;
+ }
+ .slick-next:before{
+  color:aqua;
+font-size: 25px;
+ }

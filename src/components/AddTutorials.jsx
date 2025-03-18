@@ -29,12 +29,12 @@ const AddTutorials = () => {
 
   return (
     <div>
-      <div className="lg:w-10/12 p-4 mx-auto border rounded-lg shadow-sm bg-white py-20">
+      <div className="lg:w-10/12 p-4 mx-auto border rounded-lg shadow-sm bg-white dark:bg-black py-20">
         <div className="p-6 border-b pb-10">
-          <h2 className="text-4xl text-center font-semibold">
+          <h2 className="text-4xl text-center dark:text-white font-semibold pb-10">
             Create Tutorial
           </h2>
-          <p className="text-lg text-center text-gray-500 mt-1">
+          <p className="text-lg text-center text-gray-500 dark:text-white mt-1">
             Fill out the form below to create a new tutorial
           </p>
         </div>
@@ -44,27 +44,27 @@ const AddTutorials = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {/* Name Field */}
               <div className="space-y-2">
-                <label htmlFor="name" className="block text-sm font-medium">
+                <label htmlFor="name" className="block text-sm font-medium dark:text-white">
                   Name
                 </label>
                 <input
                   name="name"
                   type="text"
                   placeholder="Enter Your Name"
-                  className="w-full px-3 py-3 border bg-white text-black border-gray-300 rounded-md text-sm"
+                  className="w-full px-3 py-3 border bg-white dark:bg-black dark:text-white text-black border-gray-300 rounded-md text-sm"
                 />
               </div>
 
               {/* Email Field */}
               <div className="space-y-2">
-                <label htmlFor="email" className="block text-sm font-medium">
+                <label htmlFor="email" className="block text-sm font-medium dark:text-white">
                   Email
                 </label>
                 <input
                   name="email"
                   type="email"
                   placeholder="Enter Your Email"
-                  className="w-full px-3 py-3 bg-white text-black border border-gray-300 rounded-md text-sm"
+                  className="w-full px-3 py-3 bg-white dark:bg-black dark:text-white text-black border border-gray-300 rounded-md text-sm"
                 />
               </div>
             </div>
@@ -72,7 +72,7 @@ const AddTutorials = () => {
             {/* Image URL Field */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="space-y-2">
-                <label className="block text-sm font-medium">
+                <label className="block text-sm font-medium dark:text-white">
                   Tutorial Photo URL
                 </label>
                 <div className="space-y-4">
@@ -81,14 +81,14 @@ const AddTutorials = () => {
                       name="image"
                       placeholder="Enter Your Photo URL"
                       type="text"
-                      className="flex-1 px-3 py-3 bg-white text-black border border-gray-300 rounded-md text-sm"
+                      className="flex-1 px-3 py-3 bg-white dark:bg-black dark:text-white text-black border border-gray-300 rounded-md text-sm"
                     />
                   </div>
                 </div>
               </div>
 
               <div className="space-y-2">
-                <label htmlFor="review" className="block text-sm font-medium">
+                <label htmlFor="review" className="block text-sm font-medium dark:text-white">
                   Review
                 </label>
                 <div className="flex items-center gap-2">
@@ -96,7 +96,7 @@ const AddTutorials = () => {
                     name="review"
                     type="text"
                     placeholder="Review"
-                    className="w-full px-3 py-3 border bg-white text-black border-gray-300 rounded-md text-sm"
+                    className="w-full px-3 py-3 border bg-white dark:bg-black dark:text-white text-black border-gray-300 rounded-md text-sm"
                   />
                 </div>
               </div>
@@ -105,12 +105,12 @@ const AddTutorials = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {/* Language Field */}
               <div className="space-y-2">
-                <label htmlFor="language" className="block text-sm font-medium">
+                <label htmlFor="language" className="block text-sm font-medium dark:text-white">
                   Language
                 </label>
                 <select
                   name="language"
-                  className="w-full px-3 py-3 border bg-white text-black border-gray-300 rounded-md text-sm"
+                  className="w-full px-3 py-3 border bg-white text-black dark:bg-black dark:text-white border-gray-300 rounded-md text-sm"
                 >
                   <option value="" defaultValue="English">
                     Select a language
@@ -126,7 +126,7 @@ const AddTutorials = () => {
 
               {/* Price Field */}
               <div className="space-y-2">
-                <label htmlFor="price" className="block text-sm font-medium">
+                <label htmlFor="price" className="block text-sm font-medium dark:text-white">
                   Price
                 </label>
                 <div className="relative">
@@ -137,7 +137,7 @@ const AddTutorials = () => {
                     name="price"
                     type="text"
                     placeholder="Set a price for your tutorial"
-                    className="w-full pl-7 pr-3 bg-white text-black py-3 border border-gray-300 rounded-md text-sm"
+                    className="w-full pl-7 pr-3 bg-white  dark:bg-black dark:text-white text-black py-3 border border-gray-300 rounded-md text-sm"
                   />
                 </div>
               </div>
@@ -147,16 +147,16 @@ const AddTutorials = () => {
             <div className="space-y-2">
               <label
                 htmlFor="description"
-                className="block text-sm font-medium"
+                className="block text-sm font-medium dark:text-white"
               >
                 Description
               </label>
               <textarea
                 name="description"
                 placeholder="Provide a detailed description of your tutorial..."
-                className="w-full px-3 py-3 border bg-white text-black border-gray-300 rounded-md text-sm min-h-[120px]"
+                className="w-full px-3 py-3 border bg-white dark:bg-black dark:text-white text-black border-gray-300 rounded-md text-sm min-h-[120px]"
               />
-              <p className="text-xs text-gray-500">
+              <p className="text-xs text-gray-500 dark:text-white">
                 Describe what users will learn from your tutorial
               </p>
             </div>

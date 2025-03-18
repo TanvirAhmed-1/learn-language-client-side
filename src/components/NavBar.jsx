@@ -37,7 +37,7 @@ const NavBar = () => {
   );
 
   return (
-    <div className="navbar bg-white shadow-sm h-28 lg:px-10 md:px-4">
+    <div className="navbar bg-white dark:bg-black shadow-sm h-28 lg:px-10 md:px-4">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -65,20 +65,20 @@ const NavBar = () => {
         </div>
         <div className="flex justify-center items-center gap-2">
           <p className="md:text-xl text-white p-2 rounded-[50%] bg-green-400 font-semibold">
-            BD
+            LG
           </p>
           <div className="flex justify-center items-center">
-            <span className="md:text-3xl text-lg font-semibold text-black">
-              JOb
+            <span className="md:text-3xl text-lg font-semibold text-black dark:text-white">
+            Study
             </span>
             <p className="md:text-3xl text-lg font-semibold text-green-500">
-              Path
+            Zone
             </p>
           </div>
         </div>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="flex gap-6 md:text-2xl font-medium text-black menu-horizontal px-1">
+        <ul className="flex gap-6 md:text-2xl font-medium text-black dark:text-white menu-horizontal px-1">
           {link}
         </ul>
       </div>

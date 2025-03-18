@@ -6,20 +6,20 @@ const Tutorials = ({ tutorials }) => {
 
   const { name, image, description, language,} = tutorials;
   return (
-    <div className="">
-      <div className="card card-side bg-white shadow-sm flex justify-center items-center gap-6 p-4">
-        <figure className="w-40 h-40 rounded-full ">
+    <div className="pb-20">
+      <h1 className="lg:text-3xl text-xl py-10 text-center font-semibold dark:text-white ">Choose Your Favorite Tutors and Start Learning Today!</h1>
+      <div className="card card-side bg-white  dark:bg-gray-600 shadow-sm flex justify-center items-center gap-10 p-4">
+        <figure className="p-4 ">
           <img
             src={image}
-            alt="Movie"
-            className=" object-cover w-full  overflow-hidden"
+            className=" object-cover w-60 h-40 rounded-full  overflow-hidden"
           />
         </figure>
         <div className="card-body">
-          <h2 className="card-title">{name}</h2>
-          <p>Speaks {language}</p>
-          <p>24 active students</p>
-          <p className="line-clamp-1">{description}</p>
+          <h2 className="card-title dark:text-white">{name}</h2>
+          <p className="dark:text-white">Speaks {language}</p>
+          <p className="dark:text-white">24 active students</p>
+          <p className="line-clamp-2 w-3/4 dark:text-white">{description}</p>
           <div className="card-actions justify-end">
             <Link to={`/find-tutors/${language}`} className="btn btn-primary">Book trial lesson</Link>
           </div>

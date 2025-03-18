@@ -51,7 +51,7 @@ const TeacherCarousal = () => {
     ]
   };
   return (
-    <div className="w-full py-20 bg-gray-900">
+    <div className="w-full py-20 bg-white dark:bg-black">
       <div className="lg:w-9/12 px-7 mx-auto">
       <Slider {...settings}>
         {data.slice(2, 8).map((d) => (
@@ -59,7 +59,7 @@ const TeacherCarousal = () => {
             <div className="bg-indigo-400 py-8 h-56 flex justify-center items-center rounded-t-xl ">
               <img src={d.image} alt="" srcset="" className="h-44 w-44 rounded-full" />
             </div>
-            <div className="flex  flex-col gap-2 justify-center items-center py-8 px-4 bg-white rounded-b-xl">
+            <div className="flex h-64 flex-col gap-2 justify-center items-center py-8 px-4 dark:bg-white bg-[#EBE8DB] rounded-b-xl">
             <div className="flex  gap-4 justify-center items-center">
             <p className="text-xl font-medium text-black">{d.name}</p>
             <p className="text-[10px]  bg-green-200  rounded-lg px-2 text-black">{d.language}</p>

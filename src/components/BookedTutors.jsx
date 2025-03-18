@@ -36,7 +36,7 @@ const BookedTutors = () => {
 
   return (
     <div className="p-6 lg:w-10/12 mx-auto">
-      <h1 className="text-3xl font-bold text-green-600 text-center">
+      <h1 className="text-3xl font-bold dark:text-white text-black py-10  text-center">
         My Booked Tutors
       </h1>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-6">
