@@ -30,8 +30,8 @@ const Categories = () => {
   }, []);
 
   return (
-    <div className="w-8/12 mx-auto">
-      <div className="grid lg:grid-cols-3 md:grid-cols-3 grid-cols-2 gap-4">
+    <div className="lg:w-8/12 px-5 lg:px-0 mx-auto py-20">
+      <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4">
         {categories.map(({ language, totalTutors }) => (
           <Link
             to={`/find-tutors/${language}`}

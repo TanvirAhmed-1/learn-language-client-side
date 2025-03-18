@@ -21,12 +21,38 @@ const TeacherCarousal = () => {
     infinite: true,
     loop:true,
     speed: 700,
-    slidesToShow: 3,
+    slidesToShow:3,
     slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          infinite: true,
+          dots: true
+        }
+      },
+      {
+        breakpoint: 800,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      }
+    ]
   };
   return (
     <div className="w-full py-20 bg-gray-900">
-      <div className="w-9/12 mx-auto">
+      <div className="lg:w-9/12 px-7 mx-auto">
       <Slider {...settings}>
         {data.slice(2, 8).map((d) => (
           <div className="">

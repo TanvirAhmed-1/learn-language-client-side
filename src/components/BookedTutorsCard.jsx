@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const BookedTutorsCard = ({ tutorials, handleReview }) => {
   console.log(tutorials);
 
-  const { name, image, description, language, tutorEmail,price, _id } = tutorials;
+  const { name, image, description, language, tutorEmail,price, _id,review } = tutorials;
   return (
     <div className="p-4">
       <div className="card card-side bg-white shadow-md flex flex-col md:flex-row items-center md:items-start gap-4 md:gap-6 p-4">
@@ -30,7 +30,9 @@ const BookedTutorsCard = ({ tutorials, handleReview }) => {
           <p className="text-xl text-black">
             Email: <span className="text-gray-700">{tutorEmail}</span>
           </p>
-          <p className="line-clamp-2">{description}</p>
+          <p className="text-xl text-black">
+            Review: <span className="text-gray-700">{review||0}</span>
+          </p>
           <div className="card-actions justify-center md:justify-end py-3">
             <button
               onClick={() => handleReview(_id)}

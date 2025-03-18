@@ -14,7 +14,7 @@ const Category = () => {
   }, []);
 
   return (
-    <div className="w-10/12 mx-auto">
+    <div className="lg:w-10/12 mx-auto">
       {/* card */}
       <div className="grid lg:grid-cols-2 grid-cols-1 gap-6 w-10/12 mx-auto ">
         {data.slice(0, 4).map((value) => (

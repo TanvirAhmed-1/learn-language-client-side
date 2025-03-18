@@ -15,9 +15,6 @@ const Home = () => {
                 <State></State>
             </section>
             <section>
-                <TeacherCarousal></TeacherCarousal>
-            </section>
-            <section>
                 <Categories></Categories>
             </section>
             <section>

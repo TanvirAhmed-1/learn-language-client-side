@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { FaLanguage, FaRegUser } from "react-icons/fa";
+import { MdOutlineRateReview } from "react-icons/md";
 
 const State = () => {
   const [tutors, setTutors] = useState([]);
@@ -20,14 +21,22 @@ const State = () => {
       .then((res) => res.json())
       .then((data) => {
         setUserCount(data);
+      });
+
+      fetch("http://localhost:5000/tutorial/review/count")
+      .then((res) => res.json())
+      .then((data) => {
         setReview(data);
       });
+
+
+
   }, []);
 
   return (
     <div className="bg-white w-full mx-auto py-10">
       <div className="w-11/12 mx-auto">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1  md:grid-cols-2 lg:grid-cols-4 gap-6">
           {/* Total Languages */}
           <div className="stat bg-gray-100 p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300">
             <div className="stat-figure text-blue-500 text-4xl flex justify-center">
@@ -64,14 +73,11 @@ const State = () => {
           {/* New Registers */}
           <div className="stat bg-gray-100 p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300">
             <div className="stat-figure text-red-500 text-4xl flex justify-center">
-              <FaRegUser />
+            <MdOutlineRateReview />
             </div>
-            <div className="stat-value text-center">1,200</div>
+            <div className="stat-value text-center">{review.totalReviews}</div>
             <div className="stat-title text-lg font-semibold text-gray-700 text-center">
-              New Registers
-            </div>
-            <div className="stat-desc text-center text-sm text-gray-500">
-              ↘︎ 90 (14%)
+              Total Review
             </div>
           </div>
         </div>

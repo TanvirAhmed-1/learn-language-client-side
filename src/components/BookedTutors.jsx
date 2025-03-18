@@ -23,16 +23,16 @@ const BookedTutors = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount > 0) {
-          // ✅ UI আপডেট করা
-          setBookedTutors((prev) =>
-            prev.map((tutor) =>
-              tutor._id === id ? { ...tutor, review: tutor.review + 1 } : tutor
-            )
+          // ✅ UI আপডেট করা (সঠিকভাবে `_id` চেক করে)
+          const reviewUpdate = bookedTutors.map((tutor) =>
+            tutor._id === id ? { ...tutor, review:tutor.review  + 1 } : tutor
           );
+          setBookedTutors(reviewUpdate);
         }
       })
-      .catch((err) => console.log(err));
+      .catch((err) => console.error("Review update failed:", err));
   };
+  
 
   return (
     <div className="p-6 lg:w-10/12 mx-auto">
