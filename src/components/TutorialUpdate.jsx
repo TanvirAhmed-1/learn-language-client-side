@@ -144,6 +144,7 @@ const TutorialUpdate = () => {
                   <input
                     name="price"
                     type="text"
+                    defaultValue={userData?.price}
                     placeholder="Set a price for your tutorial"
                     className="w-full pl-7 pr-3 bg-white text-black py-3 border border-gray-300 rounded-md text-sm"
                   />
@@ -161,6 +162,7 @@ const TutorialUpdate = () => {
               </label>
               <textarea
                 name="description"
+                defaultValue={userData?.description}
                 placeholder="Provide a detailed description of your tutorial..."
                 className="w-full px-3 py-3 border bg-white text-black border-gray-300 rounded-md text-sm min-h-[120px]"
               />

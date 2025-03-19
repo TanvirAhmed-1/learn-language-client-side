@@ -55,7 +55,7 @@ const TeacherCarousal = () => {
       <h1 className="lg:text-4xl text-2xl font-semibold dark:text-white text-center w-5/8 mx-auto py-10 text-black">Explore & Connect with Top Educators. Join a Free Class </h1>
       <div className="lg:w-9/12 px-7 mx-auto">
       <Slider {...settings}>
-        {data.slice(2, 8).map((d) => (
+        {data.slice(1, 10).map((d) => (
           <div className="">
             <div className="bg-indigo-400 py-8 h-56 flex justify-center items-center rounded-t-xl ">
               <img src={d.image} alt="" srcset="" className="h-44 w-44 rounded-full" />

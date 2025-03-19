@@ -4,21 +4,28 @@ import { MdDeleteForever } from "react-icons/md";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2"; 
 import { AuthContext } from "../authorization/Authorization";
+import AxiosHook from "../hook/AxiosHook";
 
 const MyTutorials = () => {
   const [data, setData] = useState([]);
   const{user, setLoader}=useContext(AuthContext)
+  const axioshook=AxiosHook()
 
   useEffect(() => {
 const time=setTimeout(()=>{
-  fetch(`http://localhost:5000/tutorials/email?email=${user.email}`)
-  .then((res) => res.json())
-  .then((d) => {
-    console.log(d);
-    setData(d);
-    setLoader(false);
-  })
-  .catch((err) => console.log(err));
+  // fetch(`http://localhost:5000/tutorials/email?email=${user.email}`)
+
+  // .then((res) => res.json())
+  // .then((d) => {
+  //   setData(d);
+  //   setLoader(false);
+  // })
+  // .catch((err) => console.log(err));
+
+  axioshook.get(`/tutorials/email?email=${user.email}`)
+  .then((res) => {
+    setData(res.data);
+ });
 },200)
 return () => clearTimeout(time);
   }, [user?.email]);

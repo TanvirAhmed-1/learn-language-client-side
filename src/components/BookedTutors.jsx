@@ -2,12 +2,12 @@ import { useEffect, useState, useContext } from "react";
 import { AuthContext } from "../authorization/Authorization";
 import BookedTutorsCard from "./BookedTutorsCard";
 import axios from "axios";
-// import AxiosHook from "../hook/AxiosHook";
+import AxiosHook from "../hook/AxiosHook";
 
 const BookedTutors = () => {
   const { user } = useContext(AuthContext);
   const [bookedTutors, setBookedTutors] = useState([]);
-  // const axios=AxiosHook()
+  const axioshook=AxiosHook()
 
   useEffect(() => {
 
@@ -16,27 +16,30 @@ const BookedTutors = () => {
     //   .then((data) => setBookedTutors(data))
     //   .catch((err) => console.log(err));
 
-  axios
-      .get(`http://localhost:5000/book/tutorials?email=${user?.email}`, {
-        withCredentials: true,
-      })
-      .then((res) => {
+  // axios
+  //     .get(`http://localhost:5000/book/tutorials?email=${user?.email}`, {
+  //       withCredentials: true,
+  //     })
+  //     .then((res) => {
+  //       setBookedTutors(res.data);
+  //     });
+
+  axioshook.get(`/book/tutorials?email=${user?.email}`)
+       .then((res) => {
         setBookedTutors(res.data);
       });
 
   }, [user?.email]);
 
-  // ✅ Handle Review Button Click
   const handleReview = (id) => {
     fetch(`http://localhost:5000/book/tutorial/review/${id}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ review: 1 }), // review 1 বাড়ানোর জন্য
+      body: JSON.stringify({ review: 1 }), 
     })
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount > 0) {
-          // ✅ UI আপডেট করা (সঠিকভাবে `_id` চেক করে)
           const reviewUpdate = bookedTutors.map((tutor) =>
             tutor._id === id ? { ...tutor, review: tutor.review + 1 } : tutor
           );

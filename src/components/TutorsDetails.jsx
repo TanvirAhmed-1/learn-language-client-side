@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { FaBookmark } from "react-icons/fa";
 import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../authorization/Authorization";
+import { toast } from "react-toastify";
 
 const TutorsDetails = () => {
   const userData = useLoaderData();
@@ -29,11 +30,11 @@ const TutorsDetails = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log("Booking Response:", data);
-        alert("Booking Successful!");
+        toast.success("Booking Successful!");
       })
       .catch((err) => {
         console.error("Booking Error:", err);
-        alert("Booking Failed! Please try again.");
+        toast.error("Booking Failed! Please try again.");
       });
   };
 
@@ -44,11 +45,11 @@ const TutorsDetails = () => {
       </h1>
       <div className="flex justify-center items-center pb-20 h-full px-6">
         <div className="card card-side bg-gray-300  shadow-lg border w-full max-w-7xl max-h-[500px]">
-          <figure className="w-96 bg-white dark:bg-black rounded-lg p-4 md:p-8">
+          <figure className="w-[50%] bg-white dark:bg-black rounded-lg p-4 md:p-8">
             <img
               src={image}
               alt={name}
-              className="h-46 w-46 p-4 object-cover rounded-3xl border bg-gray-200 border-gray-400"
+              className="h-46 w-80 p-4 overflow-hidden object-cover rounded-3xl border bg-gray-200 border-gray-400"
             />
           </figure>
           <div className="card-body w-5/8 p-6 gap-1">
