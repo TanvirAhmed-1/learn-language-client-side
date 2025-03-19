@@ -35,7 +35,7 @@ const NavBar = () => {
         }
       </li>
       <li>
-        { user&& userSignOut.email? <NavLink to={"/my-tutorials"}>My Booked Tutors</NavLink>:""}
+        { user && user.email ? <NavLink to={"/my-tutorials"}>My Booked Tutors</NavLink>:""}
       </li>
       <li>
       <NavLink to={"/contact"}>Contact Us</NavLink>

@@ -11,6 +11,7 @@ import {
   onAuthStateChanged,
 } from "firebase/auth";
 import { app } from "../firebase.init";
+import axios from "axios";
 
 export const AuthContext = createContext(null);
 
@@ -70,6 +71,31 @@ const Authorization = ({ children }) => {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
+      //JWT
+      console.log("currentUser", currentUser,currentUser?.email);
+       
+      if (currentUser?.email) {
+        const user = { email: currentUser.email };
+        axios
+          .post(`http://localhost:5000/jwt`, user, { withCredentials: true })
+          .then((res) => {
+            console.log(res.data);
+            setLoader(false);
+          })
+          // .catch((error) => console.error("Logout error:", error))
+          // .finally(() => setLoader(false));
+      } 
+      
+      else {
+        axios
+          .post(`http://localhost:5000/logout`, {}, { withCredentials: true })
+          .then((res) => {
+            console.log(res.data);
+            setLoader(false);
+          })
+          // .catch((error) => console.error("Logout error:", error))
+          // .finally(() => setLoader(false));
+      }
     });
     return () => {
       unsubscribe();

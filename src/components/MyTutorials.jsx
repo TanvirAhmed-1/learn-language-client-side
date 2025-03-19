@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { FaPen } from "react-icons/fa";
 import { MdDeleteForever } from "react-icons/md";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2"; 
+import { AuthContext } from "../authorization/Authorization";
 
 const MyTutorials = () => {
   const [data, setData] = useState([]);
+  const{user}=useContext(AuthContext)
 
   useEffect(() => {
     fetch("http://localhost:5000/tutorials")
