@@ -12,6 +12,9 @@ import { Navigate } from "react-router-dom";
 import AllTutors from "../components/AllTutors";
 import TutorsDetails from "../components/TutorsDetails";
 import BookedTutors from "../components/BookedTutors";
+import PrivateRoute from './PrivateRoute';
+import ContactUs from "../components/ContactUs";
+import AboutUs from "../components/AboutUs";
 
 const router = createBrowserRouter([
   {
@@ -33,17 +36,25 @@ const router = createBrowserRouter([
       },
       {
         path: "addTutorial",
-        element: <AddTutorials></AddTutorials>,
+        element:<PrivateRoute><AddTutorials></AddTutorials></PrivateRoute>
       },
       {
         path: "myTutorial",
-        element: <MyTutorials></MyTutorials>,
+        element:<PrivateRoute><MyTutorials></MyTutorials></PrivateRoute>
       },
       {
         path: "/update/:id",
         element: <TutorialUpdate></TutorialUpdate>,
         loader: ({ params }) =>
           fetch(`http://localhost:5000/tutorials/${params.id}`),
+      },
+      {
+      path:"/contact",
+      element:<ContactUs></ContactUs>
+      },
+      {
+       path:"/about",
+       element:<AboutUs></AboutUs>
       },
       {
         path: "/find-tutors",
@@ -62,7 +73,7 @@ const router = createBrowserRouter([
       },
       {
         path:"/my-tutorials",
-        element:<BookedTutors></BookedTutors>
+        element:<PrivateRoute><BookedTutors></BookedTutors></PrivateRoute>
       }
     ],
   },

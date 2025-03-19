@@ -8,8 +8,8 @@ const NavBar = () => {
 
   const handleSignOut = () => {
     userSignOut()
-      .then(() => {
-        setUser(null); // Set user to null after sign-out
+      .then((data) => {
+        setUser(data.user); 
       })
       .catch((err) => {
         console.error("Sign out error:", err.message);
@@ -25,19 +25,26 @@ const NavBar = () => {
         <NavLink to={"/find-tutors"}>Find tutors</NavLink>
       </li>
       <li>
-        <NavLink to={"/addTutorial"}>Add Tutorials</NavLink>
+        {
+          user && user.email ? <NavLink to={"/addTutorial"}>Add Tutorials</NavLink>:""
+        }
       </li>
       <li>
-        <NavLink to={"/myTutorial"}>My Tutorials</NavLink>
+        {
+          user && user.email ? <NavLink to={"/myTutorial"}>My Tutorials</NavLink>:""
+        }
       </li>
       <li>
-        <NavLink to={"/my-tutorials"}>My Booked Tutors</NavLink>
+        { user&& userSignOut.email? <NavLink to={"/my-tutorials"}>My Booked Tutors</NavLink>:""}
+      </li>
+      <li>
+      <NavLink to={"/contact"}>Contact Us</NavLink>
       </li>
     </>
   );
 
   return (
-    <div className="navbar bg-white dark:bg-black shadow-sm h-28 lg:px-10 md:px-4">
+    <div className="navbar bg-white dark:bg-gray-500 shadow-sm h-28 lg:px-10 md:px-4">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
