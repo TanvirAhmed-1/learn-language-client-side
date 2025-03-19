@@ -7,17 +7,21 @@ import { AuthContext } from "../authorization/Authorization";
 
 const MyTutorials = () => {
   const [data, setData] = useState([]);
-  const{user}=useContext(AuthContext)
+  const{user, setLoader}=useContext(AuthContext)
 
   useEffect(() => {
-    fetch("http://localhost:5000/tutorials")
-      .then((res) => res.json())
-      .then((d) => {
-        console.log(d);
-        setData(d);
-      })
-      .catch((err) => console.log(err));
-  }, []);
+const time=setTimeout(()=>{
+  fetch(`http://localhost:5000/tutorials/email?email=${user.email}`)
+  .then((res) => res.json())
+  .then((d) => {
+    console.log(d);
+    setData(d);
+    setLoader(false);
+  })
+  .catch((err) => console.log(err));
+},200)
+return () => clearTimeout(time);
+  }, [user?.email]);
 
   const handleDelete = (id) => {
     console.log(id);
@@ -97,17 +101,17 @@ const MyTutorials = () => {
                 <td className="border p-2">${v.price}</td>
                 <td className="border p-2">{v.review}</td>
                 <td className="border p-2 w-[40%] text-wrap">{v.description}</td>
-                <td className=" p-2 flex justify-center">
+                <td className=" p-2">
                   <Link to={`/update/${v._id}`}
                   
-                  className="text-sky-500 text-lg">
+                  className="text-sky-500 text-lg flex justify-center items-center">
                     <FaPen />
                   </Link>
                 </td>
                 <td className="border p-2">
                   <button
                     onClick={() => handleDelete(v._id)}
-                    className="text-red-500 text-xl"
+                    className="text-red-500 text-2xl"
                   >
                     <MdDeleteForever />
                   </button>

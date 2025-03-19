@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { toast } from "react-toastify";
+import { AuthContext } from "../authorization/Authorization";
 
 const AddTutorials = () => {
+
+  const {user}=useContext(AuthContext)
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
@@ -63,6 +67,7 @@ const AddTutorials = () => {
                 <input
                   name="email"
                   type="email"
+                  defaultValue={user.email}
                   placeholder="Enter Your Email"
                   className="w-full px-3 py-3 bg-white dark:bg-black dark:text-white text-black border border-gray-300 rounded-md text-sm"
                 />

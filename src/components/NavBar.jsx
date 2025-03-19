@@ -25,9 +25,8 @@ const NavBar = () => {
         <NavLink to={"/find-tutors"}>Find tutors</NavLink>
       </li>
       <li>
-        {
-          user && user.email ? <NavLink to={"/addTutorial"}>Add Tutorials</NavLink>:""
-        }
+         <NavLink to={"/addTutorial"}>Add Tutorials</NavLink>
+        
       </li>
       <li>
         {
@@ -85,7 +84,7 @@ const NavBar = () => {
         </div>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="flex gap-6 md:text-2xl font-medium text-black dark:text-white menu-horizontal px-1">
+        <ul className="flex lg:gap-6 lg:text-2xl text-xl  font-medium text-black dark:text-white menu-horizontal px-1">
           {link}
         </ul>
       </div>
@@ -101,7 +100,7 @@ const NavBar = () => {
 
               <ul
                 tabIndex={0}
-                className="dropdown-content menu bg-white rounded-box z-1 w-52 p-2 shadow-sm"
+                className="dropdown-content menu bg-white rounded-box z-1 w-auto p-2 shadow-sm"
               >
                
                 <li className="px-4 py-2 text-gray-700 font-medium">{user.displayName}</li>
@@ -110,7 +109,7 @@ const NavBar = () => {
             </div>
           ) : (
             <Link to={"/login"}>
-              <p className="btn text-green-500 text-nowrap bg-white border-green-500 md:text-xl hover:border-none hover:text-white hover:bg-green-500 font-semibold">
+              <p className=" text-green-500 text-nowrap bg-white border-green-500 md:text-xl hover:border-none hover:text-white hover:bg-green-500 font-semibold">
                 Sign In
               </p>
             </Link>
@@ -118,11 +117,11 @@ const NavBar = () => {
         </div>
         <Link to={"/register"}>
           {user && user.email ? (
-            <button onClick={handleSignOut} className="btn text-green-500 bg-white border-green-500 hover:border-none hover:text-white hover:bg-green-500 md:text-xl font-semibold">
+            <button onClick={handleSignOut} className="btn text-green-500 bg-white border-green-500 hover:border-none hover:text-white hover:bg-green-500 md:text-xl font-normal text-sm">
              Sign Out
             </button>
           ) : (
-            <button className="btn text-green-500 bg-white border-green-500 hover:border-none hover:text-white hover:bg-green-500 md:text-xl font-semibold">
+            <button className=" text-green-500 bg-white border-green-500 hover:border-none hover:text-white hover:bg-green-500 md:text-xl font-semibold">
               Register
             </button>
           )}

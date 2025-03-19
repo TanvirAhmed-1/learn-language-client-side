@@ -11,8 +11,6 @@ const TutorsDetails = () => {
   const { name, image, language, description, price, review, _id, email } = userData;
 
   const handleBook = () => {
-    console.log("Booking initiated...");
-
     fetch(`http://localhost:5000/book/tutorials`, {
       method: "POST",
       headers: {
@@ -41,12 +39,12 @@ const TutorsDetails = () => {
 
   return (
     <div>
-      <h1 className="text-3xl pt-20 pb-10 text-center md:text-4xl font-bold text-green-600 mb-6">
+      <h1 className="text-3xl pt-20 pb-10 text-center md:text-4xl font-bold dark:text-white text-black mb-6">
         Book Your Favorite Tutorial
       </h1>
       <div className="flex justify-center items-center pb-20 h-full px-6">
-        <div className="card card-side bg-gray-300 shadow-lg border w-full max-w-7xl max-h-[500px]">
-          <figure className="w-3/8 bg-white rounded-lg p-4 md:p-8">
+        <div className="card card-side bg-gray-300  shadow-lg border w-full max-w-7xl max-h-[500px]">
+          <figure className="w-96 bg-white dark:bg-black rounded-lg p-4 md:p-8">
             <img
               src={image}
               alt={name}
@@ -55,7 +53,7 @@ const TutorsDetails = () => {
           </figure>
           <div className="card-body w-5/8 p-6 gap-1">
             <h2 className="card-title text-2xl font-bold text-gray-800">{name}</h2>
-            <p className="text-gray-600">{description}</p>
+            <p className="text-gray-600 text-xl pt-6 ">{description}</p>
             <p className="text-lg font-medium">
               <span className="text-green-600">Language:</span> {language}
             </p>

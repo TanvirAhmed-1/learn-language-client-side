@@ -20,8 +20,8 @@ const Footer = () => {
 
   return (
     <div className="relative">
-      <div className="absolute">
-        <label className="swap swap-rotate top-16  bg-sky-400 pl-10 py-2 px-4 rounded-r-2xl">
+      <div className="absolute top-20  right-0">
+        <label className="swap swap-rotate bg-sky-400 lg:pl-10 py-2 px-4 rounded-l-2xl">
           {/* this hidden checkbox controls the state */}
           <input onClick={handleTheme} type="checkbox" />
 
@@ -49,17 +49,17 @@ const Footer = () => {
         <div className="absolute top-[-50%] left-[-2%] w-[104%] h-[100px] bg-green-400 rounded-[70%] opacity-70"></div>
         <div className="absolute top-[-75%] left-0 w-[100%] h-[100px] bg-green-600 rounded-[50%] opacity-50"></div>
       </div>
-      <footer className=" footer  sm:footer-horizontal bg-gray-800 text-base-content p-10 md:pt-36 min-h-96">
-        <aside>
+      <footer className=" footer  sm:footer-horizontal grid-cols-2 bg-gray-800 text-base-content p-10 md:pt-36 min-h-96">
+        <aside className="pt-20 md:pt-0">
           <div className="flex justify-center items-center gap-2 py-6">
             <p className="md:text-xl text-white p-2 rounded-[50%] bg-green-400 font-semibold">
               LG
             </p>
             <div className="flex justify-center items-center">
-              <span className="md:text-3xl text-lg font-semibold text-white">
+              <span className="md:text-xl text-lg font-semibold text-white">
                 Study
               </span>
-              <p className="md:text-3xl text-lg font-semibold text-green-500">
+              <p className="md:text-xl text-lg font-semibold text-green-500">
                 Zone
               </p>
             </div>
@@ -88,14 +88,14 @@ const Footer = () => {
         <nav>
           <h6 className="footer-title">Social</h6>
           <label className="">Enter your email address</label>
-          <fieldset className="w-80 pb-4">
+          <fieldset className="lg:w-80 md:w-60 pb-4">
             <div className="join">
               <input
                 type="text"
                 placeholder="username@site.com"
                 className="input input-bordered join-item"
               />
-              <button className="btn btn-primary bg-green-400 join-item">Subscribe</button>
+              <button className="py-1 px-2 btn-primary bg-green-400 join-item">Subscribe</button>
             </div>
           </fieldset>
           <div className="grid grid-flow-col gap-4">

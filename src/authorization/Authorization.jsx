@@ -61,6 +61,7 @@ const Authorization = ({ children }) => {
     setUser,
     updateUserProfile,
     loader,
+     setLoader,
     gitHubSignIn,
     googleSignIn,
     registerUser,

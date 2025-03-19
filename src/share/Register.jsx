@@ -1,12 +1,14 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import Lottie from "lottie-react";
 import registerAnimation from "../assets/Signin.json";
 import { AuthContext } from './../authorization/Authorization';
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { stringify } from "postcss";
+import { FaEyeSlash, FaRegEye } from "react-icons/fa";
 
 const Register = () => {
+  const[showPass,setShowPass]=useState(false)
 
   const {setUser,registerUser,updateUserProfile}=useContext(AuthContext)
   const navigate=useNavigate()
@@ -18,6 +20,11 @@ const Register = () => {
     const email = form.email.value;
     const photo = form.photo.value;
     const password = form.password.value;
+    const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    if (!password.match(passwordRegex)) {
+      toast.info("Enter least 8 characters one uppercase one number, one special character")
+      return 
+    }
     // console.log({ name, email, photo, password });
     registerUser(email,password)
     .then(data=>{
@@ -71,7 +78,7 @@ const Register = () => {
                 type="text"
                 name="name"
                 placeholder="Your Name"
-                className="input input-bordered w-full"
+                className="input dark:bg-white input-bordered w-full"
                 required
               />
             </div>
@@ -85,7 +92,7 @@ const Register = () => {
                 name="photo"
                 type="url"
                 placeholder="Your Photo URL"
-                className="input input-bordered w-full"
+                className="input dark:bg-white input-bordered w-full"
                 required
               />
             </div>
@@ -99,23 +106,28 @@ const Register = () => {
                 type="email"
                 name="email"
                 placeholder="Email"
-                className="input input-bordered w-full"
+                className="input dark:bg-white input-bordered w-full"
                 required
               />
             </div>
 
             {/* Password Field */}
-            <div>
+            <div className="relative">
               <label className="label text-gray-700 dark:text-white">
                 Password
               </label>
               <input
-                type="password"
+                type={showPass?"text":"password"}
                 name="password"
                 placeholder="Password"
-                className="input input-bordered w-full"
+                className="input dark:bg-white text-black  input-bordered w-full"
                 required
               />
+              <div onClick={() => setShowPass(!showPass)} className="absolute top-[38px] right-6 ">
+              {
+                showPass? <FaRegEye className="text-xl " />:<FaEyeSlash className="text-xl " />
+              }
+              </div>
             </div>
 
             {/* Submit Button */}

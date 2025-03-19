@@ -52,6 +52,7 @@ const TeacherCarousal = () => {
   };
   return (
     <div className="w-full py-20 bg-white dark:bg-black">
+      <h1 className="lg:text-4xl text-2xl font-semibold dark:text-white text-center w-5/8 mx-auto py-10 text-black">Explore & Connect with Top Educators. Join a Free Class </h1>
       <div className="lg:w-9/12 px-7 mx-auto">
       <Slider {...settings}>
         {data.slice(2, 8).map((d) => (
@@ -59,13 +60,13 @@ const TeacherCarousal = () => {
             <div className="bg-indigo-400 py-8 h-56 flex justify-center items-center rounded-t-xl ">
               <img src={d.image} alt="" srcset="" className="h-44 w-44 rounded-full" />
             </div>
-            <div className="flex h-64 flex-col gap-2 justify-center items-center py-8 px-4 dark:bg-white bg-[#EBE8DB] rounded-b-xl">
+            <div className="flex h-64 flex-col gap-4 justify-center items-center py-8 px-4 dark:bg-white bg-[#EBE8DB] rounded-b-xl">
             <div className="flex  gap-4 justify-center items-center">
             <p className="text-xl font-medium text-black">{d.name}</p>
             <p className="text-[10px]  bg-green-200  rounded-lg px-2 text-black">{d.language}</p>
             </div>
             <p className="text-lg font-medium text-black line-clamp-2 px-4">{d.description}</p>
-            <Link className="btn text-lg border-green-300 font-medium text-black bg-indigo-400 "> Read more</Link>
+            <Link to={"/find-tutors"} className="btn text-lg border-green-300 font-medium text-black bg-indigo-400 "> Read more</Link>
             </div>
           </div>
         ))}

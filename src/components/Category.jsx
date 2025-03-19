@@ -16,7 +16,7 @@ const Category = () => {
   return (
     <div className="lg:w-10/12 mx-auto">
       {/* card */}
-      <div className="grid lg:grid-cols-2 grid-cols-1 gap-6 w-10/12 mx-auto ">
+      <div className="grid lg:grid-cols-2 grid-cols-1 gap-6 w-10/12 mx-auto pb-20 ">
         {data.slice(0, 4).map((value) => (
           <Card key={value._id} tutorials={value}></Card>
         ))}

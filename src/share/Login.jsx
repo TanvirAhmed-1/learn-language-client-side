@@ -47,7 +47,7 @@ function Login() {
                 type="email"
                 name="email"
                 placeholder="email"
-                className="input input-bordered w-full"
+                className="input dark:bg-white  input-bordered w-full"
                 required
               />
             </div>
@@ -59,7 +59,7 @@ function Login() {
                 type="password"
                 name="password"
                 placeholder="password"
-                className="input input-bordered w-full"
+                className="input dark:bg-white bg-gray-300  input-bordered w-full"
                 required
               />
               <label className="label">

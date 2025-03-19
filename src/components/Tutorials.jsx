@@ -2,9 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Tutorials = ({ tutorials }) => {
-  console.log(tutorials);
+  // console.log(tutorials);
 
-  const { name, image, description, language,} = tutorials;
+  const { name, image, description, language,_id} = tutorials;
   return (
     <div className="pb-20">
       <h1 className="lg:text-3xl text-xl py-10 text-center font-semibold dark:text-white ">Choose Your Favorite Tutors and Start Learning Today!</h1>
@@ -21,7 +21,7 @@ const Tutorials = ({ tutorials }) => {
           <p className="dark:text-white">24 active students</p>
           <p className="line-clamp-2 w-3/4 dark:text-white">{description}</p>
           <div className="card-actions justify-end">
-            <Link to={`/find-tutors/${language}`} className="btn btn-primary">Book trial lesson</Link>
+            <Link to={`/tutors/${_id}`} className="btn btn-primary">Book trial lesson</Link>
           </div>
         </div>
       </div>

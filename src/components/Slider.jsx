@@ -5,6 +5,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Parallax, Pagination, Navigation, Autoplay } from "swiper/modules";
 import { FaArrowRight } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 export default function Slider() {
   return (
@@ -44,14 +45,14 @@ export default function Slider() {
             Learn faster with your best language tutor.
           </p>
         </div>
-        <div className="pt-6 md:pt-10">
+        <Link to={"/find-tutors"} className="pt-6 md:pt-10">
           <button
-            className=" btn py-2 md:py-4 text-sm md:text-lg flex items-center justify-end gap-2"
+            className=" btn py-2 md:py-4 text-sm md:text-lg flex items-center justify-start gap-2"
             data-swiper-parallax="-200"
           >
             Get Started <FaArrowRight />
           </button>
-        </div>
+        </Link>
       </SwiperSlide>
 
       {/** Slide 2 */}
@@ -61,14 +62,14 @@ export default function Slider() {
             Boost your skills with expert language tutors.
           </p>
         </div>
-        <div className="pt-6 md:pt-14">
-          <button
+        <Link to={"/find-tutors"} className="pt-6 md:pt-14">
+          <button 
             className="btn py-2 md:py-4 text-sm md:text-lg flex items-center justify-end gap-2"
             data-swiper-parallax="-200"
           >
             Get Start <FaArrowRight />
           </button>
-        </div>
+        </Link>
       </SwiperSlide>
 
       {/** Slide 3 */}
@@ -78,14 +79,14 @@ export default function Slider() {
             One-on-one tutoring for effortless language learning.
           </p>
         </div>
-        <div className="pt-6 md:pt-14">
+        <Link to={"/find-tutors"} className="pt-6 md:pt-14">
           <button
             className="btn py-2 md:py-4 text-sm md:text-lg flex items-center justify-end gap-2"
             data-swiper-parallax="-200"
           >
             Get Start <FaArrowRight />
           </button>
-        </div>
+        </Link>
       </SwiperSlide>
     </Swiper>
   );
