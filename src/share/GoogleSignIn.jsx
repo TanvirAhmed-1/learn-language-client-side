@@ -2,12 +2,13 @@ import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
 import { useContext } from "react";
 import { AuthContext } from "../authorization/Authorization";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 const GoogleSignIn = () => {
   const { gitHubSignIn, googleSignIn, setUser } = useContext(AuthContext);
   const navigate = useNavigate();
+  const location=useLocation()
 
   const handleGoogleSignIn = () => {
     googleSignIn()
@@ -30,8 +31,8 @@ const GoogleSignIn = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log("Success:", data);
-        navigate("/");
         toast.success("User registered successfully!");
+        navigate(location?.state ? location.state : "/")
       })
       .catch((err) => {
         console.error("Google Sign-In Error:", err);

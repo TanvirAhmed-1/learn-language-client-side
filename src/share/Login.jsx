@@ -3,11 +3,12 @@ import login from "../assets/Login.json";
 import GoogleSignIn from "./GoogleSignIn";
 import { useContext } from "react";
 import { AuthContext } from "../authorization/Authorization";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 function Login() {
   const { userSignIn, setUser } = useContext(AuthContext);
   const navigate = useNavigate();
+  const location=useLocation()
 
   const handleForm = (e) => {
     e.preventDefault();
@@ -23,7 +24,7 @@ function Login() {
     userSignIn(email, password)
       .then((data) => {
         setUser(data.user);
-        navigate("/");
+        navigate(location?.state ? location.state : "/")
       })
 
       .then((err) => {
@@ -47,7 +48,7 @@ function Login() {
                 type="email"
                 name="email"
                 placeholder="email"
-                className="input dark:bg-white  input-bordered w-full"
+                className="input dark:bg-white bg-gray-300 placeholder-black input-bordered w-full"
                 required
               />
             </div>
@@ -59,7 +60,7 @@ function Login() {
                 type="password"
                 name="password"
                 placeholder="password"
-                className="input dark:bg-white bg-gray-300  input-bordered w-full"
+                className="input dark:bg-white placeholder-black bg-gray-300  input-bordered w-full"
                 required
               />
               <label className="label">
