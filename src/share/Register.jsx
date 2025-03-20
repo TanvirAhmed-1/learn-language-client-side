@@ -82,7 +82,7 @@ const Register = () => {
                 type="text"
                 name="name"
                 placeholder="Your Name"
-                className="input dark:bg-white input-bordered w-full"
+                className="input dark:bg-white bg-gray-200 input-bordered w-full"
                 required
               />
             </div>
@@ -96,7 +96,7 @@ const Register = () => {
                 name="photo"
                 type="url"
                 placeholder="Your Photo URL"
-                className="input dark:bg-white input-bordered w-full"
+                className="input dark:bg-white bg-gray-200 input-bordered w-full"
                 required
               />
             </div>
@@ -110,7 +110,7 @@ const Register = () => {
                 type="email"
                 name="email"
                 placeholder="Email"
-                className="input dark:bg-white input-bordered w-full"
+                className="input dark:bg-white bg-gray-200 input-bordered w-full"
                 required
               />
             </div>
@@ -124,7 +124,7 @@ const Register = () => {
                 type={showPass?"text":"password"}
                 name="password"
                 placeholder="Password"
-                className="input dark:bg-white text-black  input-bordered w-full"
+                className="input dark:bg-white bg-gray-200 text-black  input-bordered w-full"
                 required
               />
               <div onClick={() => setShowPass(!showPass)} className="absolute top-[38px] right-6 ">
