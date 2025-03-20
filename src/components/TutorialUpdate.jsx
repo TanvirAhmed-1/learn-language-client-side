@@ -10,9 +10,9 @@ const TutorialUpdate = () => {
     e.preventDefault();
     const formData = new FormData(e.target);
     const data = Object.fromEntries(formData.entries());
-    console.log(data);
+    // console.log(data);
 
-    fetch(`http://localhost:5000/Tutorials/${userData._id}`, {
+    fetch(`https://learn-language-server-tau.vercel.app/Tutorials/${userData._id}`, {
       method: "PUT",
       headers: {
         "Content-type": "application/json",
@@ -21,13 +21,13 @@ const TutorialUpdate = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         if (data?.modifiedCount === 1) {
           toast.success("Tutorial Successfully Update To Database");
         }
       })
       .catch((err) => {
-        console.log(err);
+        // console.log(err);
       });
   };
 

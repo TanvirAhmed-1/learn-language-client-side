@@ -9,21 +9,21 @@ const State = () => {
   const [usersCount, setUserCount] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/tutorials/categories")
+    fetch("https://learn-language-server-tau.vercel.app/tutorials/categories")
       .then((res) => res.json())
       .then((data) => setLanguages(data));
 
-    fetch("http://localhost:5000/tutorials/tutors")
+    fetch("https://learn-language-server-tau.vercel.app/tutorials/tutors")
       .then((res) => res.json())
       .then((data) => setTutors(data));
 
-    fetch("http://localhost:5000/users")
+    fetch("https://learn-language-server-tau.vercel.app/users")
       .then((res) => res.json())
       .then((data) => {
         setUserCount(data);
       });
 
-      fetch("http://localhost:5000/tutorial/review/count")
+      fetch("https://learn-language-server-tau.vercel.app/tutorial/review/count")
       .then((res) => res.json())
       .then((data) => {
         setReview(data);

@@ -10,9 +10,9 @@ const AddTutorials = () => {
     e.preventDefault();
     const formData = new FormData(e.target);
     const data = Object.fromEntries(formData.entries());
-    console.log(data);
+    // console.log(data);
 
-    fetch(`http://localhost:5000/Tutorials`, {
+    fetch(`https://learn-language-server-tau.vercel.app/Tutorials`, {
       method: "POST",
       headers: {
         "Content-type": "application/json",
@@ -21,13 +21,13 @@ const AddTutorials = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         if (data?.insertedId) {
           toast.success("Tutorial Successfully Added");
         }
       })
       .catch((err) => {
-        console.log(err);
+        // console.log(err);
       });
   };
 

@@ -5,7 +5,7 @@ const AllTutors = () => {
   const [tutors, setTutors] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/tutorials")
+    fetch("https://learn-language-server-tau.vercel.app/tutorials")
       .then((res) => res.json())
       .then((data) => setTutors(data));
   }, []);

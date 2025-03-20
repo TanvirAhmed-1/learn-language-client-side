@@ -13,7 +13,7 @@ const MyTutorials = () => {
 
   useEffect(() => {
 const time=setTimeout(()=>{
-  // fetch(`http://localhost:5000/tutorials/email?email=${user.email}`)
+  // fetch(`https://learn-language-server-tau.vercel.app/tutorials/email?email=${user.email}`)
 
   // .then((res) => res.json())
   // .then((d) => {
@@ -31,7 +31,7 @@ return () => clearTimeout(time);
   }, [user?.email]);
 
   const handleDelete = (id) => {
-    console.log(id);
+    // console.log(id);
 
     Swal.fire({
       title: "Are you sure?",
@@ -43,12 +43,12 @@ return () => clearTimeout(time);
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/tutorials/${id}`, {
+        fetch(`https://learn-language-server-tau.vercel.app/tutorials/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
           .then((da) => {
-            console.log(da);
+            // console.log(da);
             if (da.deletedCount > 0) {
               Swal.fire({
                 title: "Deleted!",
@@ -61,7 +61,7 @@ return () => clearTimeout(time);
             setData(filterData);  // Corrected this to update state properly
           })
           .catch((err) => {
-            console.log(err);
+            // console.log(err);
           });
       }
     });

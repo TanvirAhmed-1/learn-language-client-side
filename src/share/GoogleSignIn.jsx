@@ -13,10 +13,10 @@ const GoogleSignIn = () => {
   const handleGoogleSignIn = () => {
     googleSignIn()
       .then((data) => {
-        console.log(data.user);
+        // console.log(data.user);
         // setUser(data.user);
 
-        return fetch("http://localhost:5000/users", {
+        return fetch("https://learn-language-server-tau.vercel.app/users", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -30,12 +30,12 @@ const GoogleSignIn = () => {
       })
       .then((res) => res.json())
       .then((data) => {
-        console.log("Success:", data);
+        // console.log("Success:", data);
         toast.success("User registered successfully!");
         navigate(location?.state ? location.state : "/")
       })
       .catch((err) => {
-        console.error("Google Sign-In Error:", err);
+        // console.error("Google Sign-In Error:", err);
         toast.error("Google Sign-In failed!");
       });
   };
@@ -43,10 +43,10 @@ const GoogleSignIn = () => {
   const handleGitHubSignIn = () => {
     gitHubSignIn()
       .then((data) => {
-        console.log(data.user);
+        // console.log(data.user);
         setUser(data.user);
 
-        return fetch("http://localhost:5000/users", {
+        return fetch("https://learn-language-server-tau.vercel.app/users", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -60,12 +60,12 @@ const GoogleSignIn = () => {
       })
       .then((res) => res.json())
       .then((data) => {
-        console.log("Success:", data);
+        // console.log("Success:", data);
         navigate("/");
         toast.success("User registered successfully!");
       })
       .catch((err) => {
-        console.error("GitHub Sign-In Error:", err);
+        // console.error("GitHub Sign-In Error:", err);
         toast.error("GitHub Sign-In failed!");
       });
   };

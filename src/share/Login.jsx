@@ -19,7 +19,7 @@ function Login() {
     const password = form.password.value;
 
     const user = { email, password };
-    console.log(user);
+    // console.log(user);
 
     userSignIn(email, password)
       .then((data) => {
@@ -28,7 +28,7 @@ function Login() {
       })
 
       .then((err) => {
-        console.log(err.message);
+        // console.log(err.message);
       });
   };
   return (

@@ -3,6 +3,7 @@ import { AuthContext } from "../authorization/Authorization";
 import BookedTutorsCard from "./BookedTutorsCard";
 import axios from "axios";
 import AxiosHook from "../hook/AxiosHook";
+import { toast } from "react-toastify";
 
 const BookedTutors = () => {
   const { user } = useContext(AuthContext);
@@ -11,13 +12,13 @@ const BookedTutors = () => {
 
   useEffect(() => {
 
-    // fetch(`http://localhost:5000/book/tutorials?email=${user?.email}`)
+    // fetch(`https://learn-language-server-tau.vercel.app/book/tutorials?email=${user?.email}`)
     //   .then((res) => res.json())
     //   .then((data) => setBookedTutors(data))
     //   .catch((err) => console.log(err));
 
   // axios
-  //     .get(`http://localhost:5000/book/tutorials?email=${user?.email}`, {
+  //     .get(`https://learn-language-server-tau.vercel.app/book/tutorials?email=${user?.email}`, {
   //       withCredentials: true,
   //     })
   //     .then((res) => {
@@ -32,7 +33,7 @@ const BookedTutors = () => {
   }, [user?.email]);
 
   const handleReview = (id) => {
-    fetch(`http://localhost:5000/book/tutorial/review/${id}`, {
+    fetch(`https://learn-language-server-tau.vercel.app/book/tutorial/review/${id}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ review: 1 }), 
@@ -40,13 +41,16 @@ const BookedTutors = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount > 0) {
+          toast.success("Thank you for your review!")
           const reviewUpdate = bookedTutors.map((tutor) =>
             tutor._id === id ? { ...tutor, review: tutor.review + 1 } : tutor
           );
           setBookedTutors(reviewUpdate);
         }
       })
-      .catch((err) => console.error("Review update failed:", err));
+      .catch((err) => {
+        toast.error("Review update failed. Please try again.");
+      });
   };
 
   return (

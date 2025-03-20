@@ -7,12 +7,12 @@ import { toast } from "react-toastify";
 const TutorsDetails = () => {
   const userData = useLoaderData();
   const { user } = useContext(AuthContext);
-  console.log(userData, user?.email);
+  // console.log(userData, user?.email);
 
   const { name, image, language, description, price, review, _id, email } = userData;
 
   const handleBook = () => {
-    fetch(`http://localhost:5000/book/tutorials`, {
+    fetch(`https://learn-language-server-tau.vercel.app/book/tutorials`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -29,11 +29,11 @@ const TutorsDetails = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log("Booking Response:", data);
+        // console.log("Booking Response:", data);
         toast.success("Booking Successful!");
       })
       .catch((err) => {
-        console.error("Booking Error:", err);
+        // console.error("Booking Error:", err);
         toast.error("Booking Failed! Please try again.");
       });
   };

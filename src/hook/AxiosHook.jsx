@@ -4,7 +4,7 @@ import { AuthContext } from "../authorization/Authorization";
 import { useNavigate } from "react-router-dom";
 
 const rememberAxios = axios.create({
-  baseURL: "http://localhost:5000",
+  baseURL: "https://learn-language-server-tau.vercel.app",
   withCredentials: true,
 });
 const AxiosHook = () => {
@@ -18,16 +18,16 @@ const AxiosHook = () => {
         return response;
       },
       (error) => {
-        console.log("interceptors", error.state);
+        // console.log("interceptors", error.state);
         if (state === 404) {
-          console.log("user logout");
+          // console.log("user logout");
           userSignOut()
             .then((data) => {
               setUser(data.user);
               navigate("/login")
             })
             .then((err) => {
-              console.log(err);
+              // console.log(err);
             });
         }
         else{

@@ -28,9 +28,9 @@ const Register = () => {
     // console.log({ name, email, photo, password });
     registerUser(email,password)
     .then(data=>{
-      console.log(data.user)
+      // console.log(data.user)
       updateUserProfile({ displayName: name, photoURL: photo })
-      fetch("http://localhost:5000/users", {
+      fetch("https://learn-language-server-tau.vercel.app/users", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -42,8 +42,12 @@ const Register = () => {
         })
       })
       .then(res => res.json())
-      .then(data => console.log("Success:", data))
-      .catch(error => console.error("Error:", error));
+      .then(data =>{
+        // console.log("Success:", data)
+      })
+      .catch(error => {
+        // console.error("Error:", error)
+      });
       navigate("/")
       toast.success("user Register Successful")
     })

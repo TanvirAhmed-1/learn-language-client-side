@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const BookedTutorsCard = ({ tutorials, handleReview }) => {
-  console.log(tutorials);
+  // console.log(tutorials);
 
   const { name, image, language, tutorEmail,price, _id,review } = tutorials;
   return (

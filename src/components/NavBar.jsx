@@ -1,10 +1,11 @@
 import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../authorization/Authorization";
+import { toast } from "react-toastify";
 
 const NavBar = () => {
   const { user, userSignOut, setUser } = useContext(AuthContext);
-  console.log("user", user);
+  // console.log("user", user);
 
   const handleSignOut = () => {
     userSignOut()
@@ -12,7 +13,7 @@ const NavBar = () => {
         setUser(data.user); 
       })
       .catch((err) => {
-        console.error("Sign out error:", err.message);
+        toast.error("Sign out error:", err.message);
       });
   };
 
@@ -109,7 +110,7 @@ const NavBar = () => {
             </div>
           ) : (
             <Link to={"/login"}>
-              <p className=" text-green-500 text-nowrap bg-white border-green-500 md:text-xl hover:border-none hover:text-white hover:bg-green-500 font-semibold">
+              <p className=" btn text-green-500 text-nowrap bg-white border-green-500 md:text-lg hover:border-none hover:text-white hover:bg-green-500 font-normal text-sm">
                 Sign In
               </p>
             </Link>
@@ -117,11 +118,11 @@ const NavBar = () => {
         </div>
         <Link to={"/register"}>
           {user && user.email ? (
-            <button onClick={handleSignOut} className="btn text-green-500 bg-white border-green-500 hover:border-none hover:text-white hover:bg-green-500 md:text-xl font-normal text-sm">
+            <button onClick={handleSignOut} className="btn text-green-500 bg-white border-green-500 hover:border-none hover:text-white hover:bg-green-500 md:text-lg font-normal text-sm">
              Sign Out
             </button>
           ) : (
-            <button className=" text-green-500 bg-white border-green-500 hover:border-none hover:text-white hover:bg-green-500 md:text-xl font-semibold">
+            <button className="btn text-green-500 bg-white border-green-500 text-sm hover:border-none hover:text-white hover:bg-green-500 md:text-lg font-normal">
               Register
             </button>
           )}

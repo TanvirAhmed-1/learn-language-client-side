@@ -73,14 +73,14 @@ const Authorization = ({ children }) => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
       //JWT
-      console.log("currentUser", currentUser,currentUser?.email);
+    
        
       if (currentUser?.email) {
         const user = { email: currentUser.email };
         axios
-          .post(`http://localhost:5000/jwt`, user, { withCredentials: true })
+          .post(`https://learn-language-server-tau.vercel.app/jwt`, user, { withCredentials: true })
           .then((res) => {
-            console.log(res.data);
+            // console.log(res.data);
             setLoader(false);
           })
           // .catch((error) => console.error("Logout error:", error))
@@ -89,9 +89,9 @@ const Authorization = ({ children }) => {
       
       else {
         axios
-          .post(`http://localhost:5000/logout`, {}, { withCredentials: true })
+          .post(`https://learn-language-server-tau.vercel.app/logout`, {}, { withCredentials: true })
           .then((res) => {
-            console.log(res.data);
+            // console.log(res.data);
             setLoader(false);
           })
           // .catch((error) => console.error("Logout error:", error))

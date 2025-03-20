@@ -10,6 +10,7 @@ import {
   TbBuildingPavilion,
 } from "react-icons/tb";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const categoryIcons = {
   English: <FaLandmarkFlag className="text-3xl md:text-5xl dark:text-white" />,
@@ -24,14 +25,16 @@ const Categories = () => {
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/tutorials/categories")
+    fetch("https://learn-language-server-tau.vercel.app/tutorials/categories")
       .then((res) => res.json())
       .then((data) => setCategories(data))
-      .catch((err) => console.error("Error fetching data:", err));
+      .catch((err) =>{
+        toast.error("Error fetching data:", err)
+      });
   }, []);
 
   return (
-    <div className="lg:w-8/12 px-5 lg:px-0 mx-auto py-20">
+    <div className="lg:w-10/12 px-5 lg:px-0 mx-auto py-20">
       <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4">
         {categories.map(({ language, totalTutors }) => (
           <Link

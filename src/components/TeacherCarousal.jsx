@@ -7,10 +7,10 @@ import Slider from "react-slick";
 const TeacherCarousal = () => {
   const [data, setData] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:5000/tutorials`)
+    fetch(`https://learn-language-server-tau.vercel.app/tutorials`)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         setData(data);
       })
       .catch((err) => console.log(err));

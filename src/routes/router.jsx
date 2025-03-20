@@ -46,7 +46,7 @@ const router = createBrowserRouter([
         path: "/update/:id",
         element: <TutorialUpdate></TutorialUpdate>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/tutorials/${params.id}`),
+          fetch(`https://learn-language-server-tau.vercel.app/tutorials/${params.id}`),
       },
       {
       path:"/contact",
@@ -64,12 +64,12 @@ const router = createBrowserRouter([
         path: "/find-tutors/:category",
         element: <FindTutors></FindTutors>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/tutorials/language/${params.category}`),
+          fetch(`https://learn-language-server-tau.vercel.app/tutorials/language/${params.category}`),
       },
       {
         path:"/tutors/:details",
         element:<PrivateRoute><TutorsDetails></TutorsDetails></PrivateRoute>,
-        loader:({params})=>fetch(`http://localhost:5000/tutorials/${params.details}`)
+        loader:({params})=>fetch(`https://learn-language-server-tau.vercel.app/tutorials/${params.details}`)
       },
       {
         path:"/my-tutorials",
